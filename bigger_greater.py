@@ -1,3 +1,7 @@
+'''
+Problem: https://www.hackerrank.com/challenges/bigger-is-greater
+'''
+
 t = int(input().strip())
 ws = [input().strip() for i in range(t)]
 
@@ -11,6 +15,6 @@ for w in ws:
                 if k == None or w[j] < w[k]: k = j
         if lex: break
     if lex:
-        w = w[:i] + w[k] + ''.join(sorted(w[i+1:k] + w[i] + w[k+1:])) 
+        w = w[:i] + w[k] + ''.join(sorted(w[i+1:k] + w[i] + w[k+1:]))
         print(w)
     else: print('no answer')

@@ -1,3 +1,7 @@
+'''
+Problem: https://www.hackerrank.com/challenges/almost-sorted
+'''
+
 def asorted(d, n):
     i = 0
     sorte = True

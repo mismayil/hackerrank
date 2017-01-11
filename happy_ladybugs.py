@@ -1,12 +1,16 @@
+'''
+Problem: https://www.hackerrank.com/challenges/happy-ladybugs
+'''
+
 Q = int(input().strip())
 for a0 in range(Q):
     n = int(input().strip())
     b = input().strip()
-    
+
     alpha = [0] * 27
     happy = True
-    
-    if len(b) <= 1: 
+
+    if len(b) <= 1:
         if b[0] == '_': print('YES')
         else: print('NO')
     else:

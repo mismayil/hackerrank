@@ -1,3 +1,7 @@
+'''
+Problem: https://www.hackerrank.com/challenges/absolute-permutation
+'''
+
 def checkperm(perm, k):
     for i in range(n):
         neg = (i+1) - k

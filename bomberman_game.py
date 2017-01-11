@@ -1,3 +1,7 @@
+'''
+Problem: https://www.hackerrank.com/challenges/bomber-man
+'''
+
 import sys
 
 NOTHING = -2
@@ -14,15 +18,15 @@ for i in range(r):
     row = []
     for j in range(c):
         if line[j] == '.': row.append(NOTHING)
-        else: row.append(BOMB)           
+        else: row.append(BOMB)
     grid.append(row)
-    
+
 # next second
 def evolve():
     for i in range(r):
         for j in range(c):
             grid[i][j] += 1
-            
+
 # detonate
 def detonate():
     for i in range(r):
@@ -30,7 +34,7 @@ def detonate():
             if grid[i][j] == EXPIRED:
                 grid[i][j] = EMPTY
                 if i-1 >= 0 and grid[i-1][j] != EXPIRED: grid[i-1][j] = EMPTY
-                if i+1 < r and grid[i+1][j] != EXPIRED: grid[i+1][j] = EMPTY    
+                if i+1 < r and grid[i+1][j] != EXPIRED: grid[i+1][j] = EMPTY
                 if j-1 >= 0 and grid[i][j-1] != EXPIRED: grid[i][j-1] = EMPTY
                 if j+1 < c and grid[i][j+1] != EXPIRED: grid[i][j+1] = EMPTY
 
@@ -54,17 +58,17 @@ def output(conf):
             if conf[i][j] < 0: print('.', end='')
             else: print('O', end='')
         print()
-        
+
 # 3 secs passed
-for s in range(EXPIRED): 
-    if n == s: 
+for s in range(EXPIRED):
+    if n == s:
         output(grid)
         sys.exit()
     evolve()
 
 detonate()
 
-index = 0    
+index = 0
 repeated = False
 
 while (not repeated):
@@ -73,6 +77,6 @@ while (not repeated):
     detonate()
     repeated = check()
     index += 1
-    
+
 index = (n - EXPIRED) % len(list(confs.keys()))
 output(confs[index])
